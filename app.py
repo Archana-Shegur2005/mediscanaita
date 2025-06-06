@@ -13,7 +13,8 @@ def extract_text():
             return jsonify({"error": "No file part"}), 400
 
         pdf_file = request.files["file"]
-        images = convert_from_bytes(pdf_file.read(), fmt='jpeg')
+        images = convert_from_bytes(pdf_file.read(), fmt='jpeg', dpi=150)
+
 
         extracted_text = []
         for img in images:
